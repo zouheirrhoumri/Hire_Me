@@ -39,6 +39,15 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <select name="role">
+
+                <option value="user">User</option>
+
+                <option value="entreprise">Entreprise</option>
+            </select>
+        </div>
+
         <!-- File Upload -->
         <div class="mt-4">
             <x-input-label for="image" :value="__('Image')" />

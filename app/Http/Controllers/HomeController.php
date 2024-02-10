@@ -16,10 +16,9 @@ class HomeController extends Controller
             if($role == 'user'){
                 return view('dashboard');
             }
-            
             elseif(Auth::id()){
                 $role = Auth()->user()->role;
-                if($role == 'enterprise'){
+                if($role == 'entreprise'){
                     return view('dashboardEntreprise');
                 }
             }
