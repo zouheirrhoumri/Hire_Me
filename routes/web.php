@@ -27,6 +27,8 @@ Route::get('/dashboard', function () {
 Route::get('/home', [HomeController::class,'index']);
 Route::get('/candidate', [CandidateController::class, 'index']);
 Route::get('/profileSetting', [CandidateController::class, 'setting']);
+Route::post('/info', [CandidateController::class, 'info']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -12,4 +12,11 @@ class CandidateController extends Controller
     public function setting(){
         return view('profileSetting');
     }
+    public function info(Request $request){
+
+        $request->validate([
+
+        ]);
+
+    }
 }

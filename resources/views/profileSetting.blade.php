@@ -274,27 +274,28 @@
                     <div class="lg:col-span-12">
                         <div class="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
                             <h5 class="text-lg font-semibold mb-4">Personal Detail :</h5>
-                            <form>
+                            <form action="info" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="grid lg:grid-cols-12 md:grid-cols-2 grid-cols-1 gap-4">
 
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Title <span class="text-red-600">*</span></label>
-                                        <input name="name" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Title :">
+                                        <input name="titre" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Title :">
                                     </div>
                                 
                                     <div class="lg:col-span-6">
                                         <label class="form-label font-medium">Current Role <span class="text-red-600">*</span></label>
-                                        <input type="text" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Occupation" name="email" required="">
+                                        <input type="text" name="poste_actuel"  class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Occupation" required="">
                                     </div>
  
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Industrie <span class="text-red-600">*</span></label>
-                                        <input name="name" id="CompanyName" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Industrie">
+                                        <input name="industrie" id="CompanyName" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Industrie">
                                     </div>
 
                                     <div class="lg:col-span-4">
                                         <label class="form-label font-medium">Your Address :</label>
-                                        <input type="address" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address" name="address" required="">
+                                        <input type="address" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address" name="addresse" required="">
                                     </div>
                                     
                                    
@@ -303,28 +304,28 @@
 
                                     <div class="lg:col-span-6">
                                         <label class="form-label font-medium">Mobile No. :</label>
-                                        <input type="text" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="+212" name="number" required="">
+                                        <input type="text" name="telephone" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="+212"  required="">
                                     </div>
 
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Other Contact</label>
-                                        <input name="name" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="">
+                                        <input name="autre_contact" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="">
                                     </div>
 
                                     <div class="lg:col-span-6">
                                         <label class="form-label font-medium" for="multiple_files">Upload Resume:</label>
-                                        <input class="relative form-input border border-slate-100 dark:border-slate-800 file:h-10 file:-mx-3 file:-my-2 file:cursor-pointer file:rounded-none file:border-0 file:px-3 file:text-neutral-700 bg-clip-padding px-3 py-1.5 file:me-3 mt-2" id="multiple_files" type="file" multiple>
+                                        <input name="cv" class="relative form-input border border-slate-100 dark:border-slate-800 file:h-10 file:-mx-3 file:-my-2 file:cursor-pointer file:rounded-none file:border-0 file:px-3 file:text-neutral-700 bg-clip-padding px-3 py-1.5 file:me-3 mt-2" id="multiple_files" type="file" multiple>
                                     </div>
                                 </div><!--end grid-->
 
                                 <div class="grid grid-cols-1">
                                     <div class="mt-5">
                                         <label class="form-label font-medium">About</label>
-                                        <textarea name="comments" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
+                                        <textarea name="a_propros" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
                                     </div>
                                 </div><!--end row-->
 
-                                <input type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md mt-5" value="Save Changes">
+                                <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md mt-5" value="Save Changes"> submit </button>
                             </form><!--end form-->
                         </div>
                     </div>
