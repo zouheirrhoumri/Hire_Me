@@ -295,7 +295,7 @@
 
                                     <div class="lg:col-span-4">
                                         <label class="form-label font-medium">Your Address :</label>
-                                        <input type="address" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address" name="addresse" required="">
+                                        <input type="adress" name="adresse" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address"  required="">
                                     </div>
                                     
                                    
@@ -321,7 +321,7 @@
                                 <div class="grid grid-cols-1">
                                     <div class="mt-5">
                                         <label class="form-label font-medium">About</label>
-                                        <textarea name="a_propros" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
+                                        <textarea name="a_propos"  id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
                                     </div>
                                 </div><!--end row-->
 
