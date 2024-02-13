@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/home', [HomeController::class,'index']);
-Route::get('/candidate', [CandidateController::class, 'index']);
+Route::get('/candidate', [CandidateController::class, 'index'])->name('candidate');
 Route::get('/profileSetting', [CandidateController::class, 'setting']);
 Route::post('/info', [CandidateController::class, 'info']);
 

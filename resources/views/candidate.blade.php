@@ -85,13 +85,13 @@
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 hidden" onclick="event.stopPropagation();">
                         <ul class="py-2 text-start">
                             <li>
-                                <a href="candidate-profile.html" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
+                                <a href="{{ route('candidate') }}" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
                             </li>
-                           
+
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <x-dropdown-link class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"   :href="route('logout')" onclick="event.preventDefault();
+                                    <x-dropdown-link class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white" :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();"><i data-feather="log-out" class="size-4 me-2"></i>
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
@@ -104,6 +104,8 @@
             <!--Login button End-->
 
             <div id="navigation">
+
+
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu justify-end">
                     <li class="has-submenu parent-menu-item">
@@ -120,40 +122,22 @@
                             <li><a href="index-nine.html" class="sub-menu-item">Hero Nine <span class="bg-yellow-500 inline-block text-white text-[10px] font-bold px-2.5 py-0.5 rounded h-5 ms-1">New</span></a></li>
                         </ul>
                     </li>
-
                     <li class="has-submenu parent-parent-menu-item"><a href="javascript:void(0)"> Jobs </a><span class="menu-arrow"></span>
                         <ul class="submenu">
+
                             <li><a href="job-categories.html" class="sub-menu-item">Job Categories</a></li>
 
                             <li class="has-submenu parent-menu-item">
                                 <a href="javascript:void(0)"> Job Grids </a><span class="submenu-arrow"></span>
-                                <ul class="submenu">
-                                    <li><a href="job-grid-one.html" class="sub-menu-item">Job Grid One</a></li>
-                                    <li><a href="job-grid-two.html" class="sub-menu-item">Job Grid Two</a></li>
-                                    <li><a href="job-grid-three.html" class="sub-menu-item">Job Grid Three</a></li>
-                                    <li><a href="job-grid-four.html" class="sub-menu-item">Job Grid Four </a></li>
-                                </ul>
+                               
                             </li>
 
                             <li class="has-submenu parent-menu-item">
                                 <a href="javascript:void(0)"> Job Lists </a><span class="submenu-arrow"></span>
-                                <ul class="submenu">
-                                    <li><a href="job-list-one.html" class="sub-menu-item">Job List One</a></li>
-                                    <li><a href="job-list-two.html" class="sub-menu-item">Job List Two</a></li>
-                                    <li><a href="job-list-three.html" class="sub-menu-item">Job List Three</a></li>
-                                    <li><a href="job-list-four.html" class="sub-menu-item">Job List Four</a></li>
-                                    <li><a href="job-list-five.html" class="sub-menu-item">Job List Five </a></li>
-                                    <li><a href="job-list-six.html" class="sub-menu-item">Job List Six </a></li>
-                                </ul>
                             </li>
-
+                          
                             <li class="has-submenu parent-menu-item">
                                 <a href="javascript:void(0)"> Job Detail </a><span class="submenu-arrow"></span>
-                                <ul class="submenu">
-                                    <li><a href="job-detail-one.html" class="sub-menu-item">Job Detail One</a></li>
-                                    <li><a href="job-detail-two.html" class="sub-menu-item">Job Detail Two</a></li>
-                                    <li><a href="job-detail-three.html" class="sub-menu-item">Job Detail Three</a></li>
-                                </ul>
                             </li>
 
                             <li><a href="job-apply.html" class="sub-menu-item">Job Apply</a></li>
@@ -251,8 +235,8 @@
                         <div class="relative flex items-end">
                             <img src="assets/images/team/01.jpg" class="size-28 rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800" alt="">
                             <div class="ms-4">
-                                <h5 class="text-lg font-semibold">Mr. Calvin carlo</h5>
-                                <p class="text-slate-400">Web Designer</p>
+                                <h5 class="text-lg font-semibold">{{auth()->user()->name}}</h5>
+                                <p class="text-slate-400">{{ $candidates->titre }}</p>
                             </div>
                         </div>
 
@@ -271,9 +255,8 @@
         <div class="container">
             <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                 <div class="lg:col-span-8 md:col-span-7">
-                    <h5 class="text-xl font-semibold">Calvin Carlo</h5>
-                    <p class="text-slate-400 mt-4">Obviously I'M Web Developer. Web Developer with over 3 years of experience. Experienced with all stages of the development cycle for dynamic web projects. The as opposed to using 'Content here, content here', making it look like readable English.</p>
-                    <p class="text-slate-400 mt-4">Data Structures and Algorithms are the heart of programming. Initially most of the developers do not realize its importance but when you will start your career in software development, you will find your code is either taking too much time or taking too much space.</p>
+                    <h5 class="text-xl font-semibold">{{auth()->user()->name}}</h5>
+                    <p class="text-slate-400 mt-4">{{$candidates->a_propos}}</p>
                     <h4 class="mt-6 text-xl font-semibold">Experience :</h4>
 
                     <div class="flex mt-6">
@@ -308,24 +291,32 @@
                         <ul class="list-none mt-4">
                             <li class="flex justify-between mt-3 items-center font-medium">
                                 <span><i data-feather="mail" class="size-4 text-slate-400 me-3 inline"></i><span class="text-slate-400 me-3">Email :</span></span>
-
-                                <span>thomas@mail.com</span>
+                                <span>{{auth()->user()->email}}</span>
                             </li>
 
                             <li class="flex justify-between mt-3 items-center font-medium">
                                 <span><i data-feather="home" class="size-4 text-slate-400 me-3 inline"></i><span class="text-slate-400 me-3">Address :</span></span>
 
-                                <span>15 Razy street</span>
+                                <span>{{$candidates->adresse}}</span>
                             </li>
 
+                            <li class="flex justify-between mt-3 items-center font-medium">
+                                <span><i data-feather="home" class="size-4 text-slate-400 me-3 inline"></i><span class="text-slate-400 me-3">Indusrie :</span></span>
+
+                                <span>{{$candidates->industrie}}</span>
+                            </li>
 
 
                             <li class="flex justify-between mt-3 items-center font-medium">
                                 <span><i data-feather="phone" class="size-4 text-slate-400 me-3 inline"></i><span class="text-slate-400 me-3">Mobile :</span></span>
 
-                                <span>(+125) 1542-8452</span>
+                                <span>{{$candidates->telephone}}</span>
                             </li>
+                            <li class="flex justify-between mt-3 items-center font-medium">
+                                <span><i data-feather="home" class="size-4 text-slate-400 me-3 inline"></i><span class="text-slate-400 me-3">Current Post :</span></span>
 
+                                <span>{{$candidates->poste_actuel}}</span>
+                            </li>
 
                             <li class="mt-3 w-full bg-white p-3 rounded-md shadow dark:shadow-gray-700">
                                 <div class="flex items-center mb-3">

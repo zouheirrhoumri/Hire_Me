@@ -10,7 +10,9 @@ class CandidateController extends Controller
 {
     public function index()
     {
-        return view('candidate');
+        $id = Auth::id();
+        $candidates = Candidate::findOrFail($id);
+        return view('candidate', compact('candidates'));
     }
     public function setting()
     {
