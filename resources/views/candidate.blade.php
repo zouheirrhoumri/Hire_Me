@@ -85,7 +85,7 @@
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 hidden" onclick="event.stopPropagation();">
                         <ul class="py-2 text-start">
                             <li>
-                                <a href="{{ route('candidate') }}" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
+                                <a href="{{ route('candidate',auth()->user()->id) }}" class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i data-feather="user" class="size-4 me-2"></i>Profile</a>
                             </li>
 
                             <li>
@@ -233,7 +233,7 @@
                 <div class="md:w-full">
                     <div class="relative flex items-end justify-between">
                         <div class="relative flex items-end">
-                            <img src="assets/images/team/01.jpg" class="size-28 rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800" alt="">
+                            <img src="{{ asset('storage/' . Auth::user()->image) }}" class="size-28 rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800" alt="">
                             <div class="ms-4">
                                 <h5 class="text-lg font-semibold">{{auth()->user()->name}}</h5>
                                 <p class="text-slate-400">{{ $candidates->titre }}</p>
@@ -241,8 +241,10 @@
                         </div>
 
                         <div class="">
-                            <a href="profileSetting" class="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white"><i data-feather="settings" class="size-4"></i></a>
+                        <a href="profileSetting" class="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white"><i data-feather="settings" class="size-4"></i></a>
+                        <a href="{{ route('candidate.edit',$candidates->id) }}" class="btn btn-icon rounded-full bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white"><i data-feather="edit" class="size-4"></i></a>
                         </div>
+                       
                     </div>
                 </div>
             </div>

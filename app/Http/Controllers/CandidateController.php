@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Candidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +10,8 @@ class CandidateController extends Controller
 {
     public function index()
     {
-        $id = Auth::id();
-        $candidates = Candidate::findOrFail($id);
+        $candidates = Candidate::findOrFail(Auth::id());
+       
         return view('candidate', compact('candidates'));
     }
     public function setting()
@@ -35,8 +35,14 @@ class CandidateController extends Controller
 
         $data['user_id'] = Auth::id(); // Set the user_id after validation
 
-        Candidate::create($data);
+        Candidate::create($data);    
 
         return view('candidate');
+    }
+
+    public function edit(Candidate $candidate){
+       
+        return view('profileSetting',compact('candidate'));
+        
     }
 }
