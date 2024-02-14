@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth" dir="ltr">
-    
-    @include('includes.head')
+    <head>
+        <meta charset="UTF-8">
+        <title>Jobstack - Job Portal Tailwind CSS Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Job Listing Landing Template" name="description">
+    <link href="assets/css/tailwind.min.css" rel="stylesheet" type="text/css">
+</head>
     <body class="dark:bg-slate-900">
         <!-- Loader Start -->
         <!-- <div id="preloader">
@@ -196,58 +201,51 @@
                     <div class="lg:col-span-12">
                         <div class="p-6 rounded-md shadow dark:shadow-gray-800 bg-white dark:bg-slate-900">
                             <h5 class="text-lg font-semibold mb-4">Personal Detail :</h5>
-                            <form action="info" method="POST" enctype="multipart/form-data">
+                            <form action="update-data/{{ $candidates->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="grid lg:grid-cols-12 md:grid-cols-2 grid-cols-1 gap-4">
 
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Title <span class="text-red-600">*</span></label>
-                                        <input name="titre" id="JobTitle" value="{{old('titre')}}" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Title :">
+                                        <input name="titre" id="JobTitle" value="{{ $candidates->titre }}" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Title :">
                                     </div>
                                 
                                     <div class="lg:col-span-6">
                                         <label class="form-label font-medium">Current Role <span class="text-red-600">*</span></label>
-                                        <input type="text" name="poste_actuel" value="{{old('poste_actuel')}}"  class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Occupation" required="">
+                                        <input type="text" name="poste_actuel" value="{{ $candidates->poste_actuel }}"  class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Occupation" required="">
                                     </div>
  
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Industrie <span class="text-red-600">*</span></label>
-                                        <input name="industrie" value="{{old('industrie')}}" id="CompanyName" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Industrie">
+                                        <input name="industrie" value="{{ $candidates->industrie }}" id="CompanyName" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="Industrie">
                                     </div>
 
                                     <div class="lg:col-span-4">
                                         <label class="form-label font-medium">Your Address :</label>
-                                        <input type="adress" name="adresse" value="{{old('adresse')}}" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address"  required="">
+                                        <input type="adress" name="adresse" value="{{ $candidates->adresse }}" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="Address"  required="">
                                     </div>
-                                    
-                                   
-                                    
-
-
                                     <div class="lg:col-span-6">
                                         <label class="form-label font-medium">Mobile No. :</label>
-                                        <input type="text" name="telephone" value="{{old('telephone')}}" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="+212"  required="">
+                                        <input type="text" name="telephone" value="{{ $candidates->telephone }}" class="form-input border border-slate-100 dark:border-slate-800 mt-2" placeholder="+212"  required="">
                                     </div>
 
                                     <div class="col-span-12">
                                         <label class="form-label font-medium">Other Contact</label>
-                                        <input name="autre_contact" value="{{old('autre_contact')}}" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="">
+                                        <input name="autre_contact" value="{{ $candidates->autre_contact }}" id="JobTitle" type="text" class="form-input border border-slate-100 dark:border-slate-800" placeholder="">
                                     </div>
 
-                                    <div class="lg:col-span-6">
-                                        <label class="form-label font-medium" for="multiple_files">Upload Resume:</label>
-                                        <input name="cv"  value="{{old('cv')}}" class="relative form-input border border-slate-100 dark:border-slate-800 file:h-10 file:-mx-3 file:-my-2 file:cursor-pointer file:rounded-none file:border-0 file:px-3 file:text-neutral-700 bg-clip-padding px-3 py-1.5 file:me-3 mt-2" id="multiple_files" type="file" multiple>
-                                    </div>
+                                   
                                 </div><!--end grid-->
 
                                 <div class="grid grid-cols-1">
                                     <div class="mt-5">
                                         <label class="form-label font-medium">About</label>
-                                        <textarea name="a_propos" value="{{old('a_propos')}}" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
+                                        <textarea name="a_propos"  id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me">{{ $candidates->a_propos }}</textarea>
                                     </div>
                                 </div><!--end row-->
 
-                                <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md mt-5" value="Save Changes"> submit </button>
+                                <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md mt-5" > submit </button>
                             </form><!--end form-->
                         </div>
                     </div>

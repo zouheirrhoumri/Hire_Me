@@ -29,6 +29,7 @@ Route::get('/candidate', [CandidateController::class, 'index'])->name('candidate
 Route::get('/profileSetting', [CandidateController::class, 'setting']);
 Route::post('/info', [CandidateController::class, 'info']);
 Route::get('/edit', [CandidateController::class, 'edit'])->name('candidate.edit');
+Route::put('/update-data/{id}', [CandidateController::class, 'update']);
 
 
 Route::middleware('auth')->group(function () {
