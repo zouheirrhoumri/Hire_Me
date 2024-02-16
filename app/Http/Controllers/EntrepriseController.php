@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entreprise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EntrepriseController extends Controller
 {
@@ -12,16 +13,31 @@ class EntrepriseController extends Controller
      */
     public function index()
     {
-        //
+        return view('entrepriseProfile');
+    }
+    public function form()
+    {
+        return view('entrepriseForm');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nom' => 'required',
+            'slogan' => 'required',
+            'industrie' => 'required',
+            'description' => 'required',
+        ]);
+
+        $data['user_id'] = Auth::id(); // Set the user_id after validation
+        Entreprise::create($data);
+
+        return view('entrepriseProfile');
     }
+
 
     /**
      * Store a newly created resource in storage.

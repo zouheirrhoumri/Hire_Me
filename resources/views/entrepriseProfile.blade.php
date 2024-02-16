@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth" dir="ltr">
 
-<!-- Mirrored from shreethemes.in/jobstack/layouts/index-two.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:33:32 GMT -->
+<!-- Mirrored from shreethemes.in/jobstack/layouts/employer-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:34:53 GMT -->
 
 <head>
     <meta charset="UTF-8">
@@ -19,9 +19,6 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- Css -->
-    <link href="assets/libs/tobii/css/tobii.min.css" rel="stylesheet">
-    <link href="assets/libs/tiny-slider/tiny-slider.css" rel="stylesheet">
-    <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet">
     <!-- Main Css -->
     <link href="assets/libs/%40iconscout/unicons/css/line.css" type="text/css" rel="stylesheet">
     <link href="assets/libs/%40mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
@@ -40,6 +37,7 @@
             </div>
         </div> -->
     <!-- Loader End -->
+
     <!-- Start Navbar -->
     <nav id="topnav" class="defaultscroll is-sticky">
         <div class="container">
@@ -93,9 +91,9 @@
                     <!-- Dropdown menu -->
                     <div class="dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 hidden"
                         onclick="event.stopPropagation();">
-                        <ul class="py-2 text-start">    
+                        <ul class="py-2 text-start">
                             <li>
-                                <a href="{{ route('entrepriseProfile', auth()->user()->id)}}"
+                                <a href="candidate-profile.html"
                                     class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><i
                                         data-feather="user" class="size-4 me-2"></i>Profile</a>
                             </li>
@@ -113,8 +111,12 @@
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <x-dropdown-link class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"   :href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();"><i data-feather="log-out" class="size-4 me-2"></i>
+                                    <x-dropdown-link
+                                        class="flex items-center font-medium py-2 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"
+                                        :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();"><i
+                                            data-feather="log-out" class="size-4 me-2"></i>
                                         {{ __('Log Out') }}
                                     </x-dropdown-link>
                                 </form>
@@ -272,73 +274,201 @@
     </nav><!--end header-->
     <!-- End Navbar -->
 
-    <!-- Hero Start -->
+    <!-- Start Hero -->
     <section
-        class="relative h-screen flex justify-center items-center bg-[url('../../assets/images/hero/bg.html')]  bg-cover">
-        <div class="absolute inset-0 bg-slate-900/30"></div>
-        <div class="container z-1">
-            <div class="grid grid-cols-1 text-center mt-10 relative">
-                <h4 class="lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5 font-bold text-white">Find & Hire
-                    Experts <br> for any Job</h4>
-                <p class="text-white/50 text-lg max-w-xl mx-auto">Find Jobs, Employment & Career Opportunities. Some of
-                    the companies we've helped recruit excellent applicants over the years.</p>
+        class="relative table w-full py-40 bg-[url('../../assets/images/hero/bg4.html')] bg-center bg-no-repeat bg-cover">
+        <div class="absolute inset-0 bg-emerald-900/60"></div>
+    </section><!--end section-->
+    <div class="relative">
+        <div
+            class="shape absolute start-0 end-0 sm:-bottom-px -bottom-[2px] overflow-hidden z-1 text-white dark:text-slate-900">
+            <svg class="w-full h-auto" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- End Hero -->
 
-                <div class="d-flex" id="reserve-form">
-                    <div class="md:w-5/6 mx-auto">
-                        <div class="lg:col-span-10 mt-8">
-                            <div class="bg-white dark:bg-slate-900 border-0 shadow rounded-md p-3">
-                                <form action="#">
-                                    <div class="registration-form text-dark text-start">
-                                        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
-                                            <div class="filter-search-form relative filter-border">
-                                                <i class="uil uil-briefcase-alt icons"></i>
-                                                <input name="name" type="text" id="job-keyword"
-                                                    class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0"
-                                                    placeholder="Search your Keywords">
-                                            </div>
+    <!-- Start -->
+    <section class="relative mb:pb-24 pb-16 -mt-16 z-1">
+        <div class="container">
+            <div class="grid grid-cols-1">
+                <div
+                    class="md:flex justify-between items-center shadow dark:shadow-gray-700 rounded-md p-6 bg-white dark:bg-slate-900">
+                    <div class="flex items-center">
+                        <img src="{{ asset('storage/' . Auth::user()->image) }}"
+                            class="size-20 p-3 shadow dark:shadow-gray-700 rounded-md bg-slate-50 dark:bg-slate-800"
+                            alt="">
 
-                                            <div class="filter-search-form relative filter-border">
-                                                <i class="uil uil-map-marker icons"></i>
-                                                <select class="form-select" data-trigger name="choices-location"
-                                                    id="choices-location" aria-label="Default select example">
-                                                    <option value="AF">Afghanistan</option>
-                                                    <option value="AZ">Azerbaijan</option>
-                                                    <option value="BS">Bahamas</option>
-                                                    <option value="BH">Bahrain</option>
-                                                    <option value="CA">Canada</option>
-                                                    <option value="CV">Cape Verde</option>
-                                                    <option value="DK">Denmark</option>
-                                                    <option value="DJ">Djibouti</option>
-                                                    <option value="ER">Eritrea</option>
-                                                    <option value="EE">Estonia</option>
-                                                    <option value="GM">Gambia</option>
-                                                </select>
-                                            </div>
-
-                                            <input type="submit" id="search" name="search"
-                                                style="height: 60px;"
-                                                class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white searchbtn submit-btn w-100"
-                                                value="Search">
-                                        </div><!--end grid-->
-                                    </div><!--end container-->
-                                </form>
-                            </div>
-                        </div><!--ed col-->
+                        <div class="ms-4">
+                            <h5 class="text-xl font-bold">{{ Auth::user()->name }}</h5>
+                            <h6 class="text-base text-slate-400"><i class="uil uil-map-marker"></i> Canberra,
+                                Australia</h6>
+                        </div>
                     </div>
-                </div><!--end grid-->
 
-                <div class="mt-4">
-                    <span class="text-white/60"><span class="text-white">Popular Searches :</span> Designer,
-                        Developer, Web, IOS, PHP Senior Engineer</span>
+                    <div class="md:mt-0 mt-4">
+                        <a href="#"
+                            class="btn btn-sm bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white rounded-md ms-1">See
+                            Jobs</a>
+                        <a href="entrepriseForm"
+                            class="btn btn-icon rounded-full  bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white"><i
+                                data-feather="settings" class="size-4"></i></a>
+
+                    </div>
                 </div>
             </div><!--end grid-->
         </div><!--end container-->
+
+        <div class="container mt-12">
+            <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+                <div class="lg:col-span-8 md:col-span-7">
+                    <h5 class="text-xl font-semibold">Company Story</h5>
+                    <p class="text-slate-400 mt-4">It is a long established fact that a reader will be distracted by
+                        the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
+                        that it has a more-or-less normal distribution of letters, as opposed.</p>
+                    <p class="text-slate-400 mt-2">Contrary to popular belief, Lorem Ipsum is not simply random text.
+                        It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                        the more obscure Latin words, consectetur, from a Lorem Ipsum passage.</p>
+
+                    <div class="grid grid-cols-12 gap-6 mt-6">
+
+                        <div class="col-span-6">
+                            <img src="assets/images/company/2.jpg" class="rounded-md shadow dark:shadow-gray-700"
+                                alt="">
+                        </div>
+                        <div class="col-span-6">
+                            <img src="assets/images/company/3.jpg" class="rounded-md shadow dark:shadow-gray-700"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <h5 class="text-xl font-semibold mt-6">Vacancies:</h5>
+
+                    <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
+                        <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
+                            <div class="p-6">
+                                <a href="#"
+                                    class="title h5 text-lg font-semibold hover:text-emerald-600">Software
+                                    Engineering</a>
+                                <p class="text-slate-400 mt-2"><i class="uil uil-clock text-emerald-600"></i> Posted 3
+                                    Days ago</p>
+
+                                <div class="flex justify-between items-center mt-4">
+                                    <span
+                                        class="bg-emerald-600/5 text-emerald-600 text-xs font-bold px-2.5 py-0.5 rounded h-5">Full
+                                        Time</span>
+
+                                    <p class="text-slate-400"><i class="uil uil-usd-circle text-emerald-600"></i> $950
+                                        - $1100/mo</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center p-6 border-t border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/company/skype.png"
+                                    class="size-12 shadow-md dark:shadow-gray-800 rounded-md p-2 bg-white dark:bg-slate-900"
+                                    alt="">
+
+                                <div class="ms-3">
+                                    <h6 class="mb-0 font-semibold text-base">Skype</h6>
+                                    <span class="text-slate-400 text-sm">Australia</span>
+                                </div>
+                            </div>
+                        </div><!--end content-->
+
+                        <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
+                            <div class="p-6">
+                                <a href="#" class="title h5 text-lg font-semibold hover:text-emerald-600">Web
+                                    Developer</a>
+                                <p class="text-slate-400 mt-2"><i class="uil uil-clock text-emerald-600"></i> Posted 3
+                                    Days ago</p>
+
+                                <div class="flex justify-between items-center mt-4">
+                                    <span
+                                        class="bg-emerald-600/5 text-emerald-600 text-xs font-bold px-2.5 py-0.5 rounded h-5">Remote</span>
+
+                                    <p class="text-slate-400"><i class="uil uil-usd-circle text-emerald-600"></i>
+                                        $2500 - $2600/mo</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center p-6 border-t border-gray-100 dark:border-gray-700">
+                                <img src="assets/images/company/skype.png"
+                                    class="size-12 shadow-md dark:shadow-gray-800 rounded-md p-2 bg-white dark:bg-slate-900"
+                                    alt="">
+
+                                <div class="ms-3">
+                                    <h6 class="mb-0 font-semibold text-base">Skype</h6>
+                                    <span class="text-slate-400 text-sm">America</span>
+                                </div>
+                            </div>
+                        </div><!--end content-->
+                    </div>
+
+                </div><!--end col-->
+
+                <div class="lg:col-span-4 md:col-span-5">
+                    <div
+                        class="bg-slate-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-700 p-6 sticky top-20">
+
+
+                        <ul class="list-none mt-4">
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Founded:</span>
+                                <span class="font-medium">2003</span>
+                            </li>
+
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Founder:</span>
+                                <span class="font-medium">Niklas Zennström</span>
+                            </li>
+
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Headquarters:</span>
+                                <span class="font-medium">Luxembourg</span>
+                            </li>
+
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Number of employees:</span>
+                                <span class="font-medium">788</span>
+                            </li>
+
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Website:</span>
+                                <span class="font-medium">https://skype.com</span>
+                            </li>
+
+                            <li class="flex justify-between mt-2">
+                                <span class="text-slate-400 font-medium">Social:</span>
+
+                                <ul class="list-none text-end space-x-0.5">
+                                    <li class="inline"><a href="https://www.facebook.com/shreethemes" target="_blank"
+                                            class="btn btn-icon btn-sm border-2 border-gray-200 dark:border-gray-700 rounded-md hover:border-emerald-600 dark:hover:border-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-600 hover:text-white dark:text-white text-slate-400"><i
+                                                class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
+                                    <li class="inline"><a href="https://www.instagram.com/shreethemes/"
+                                            target="_blank"
+                                            class="btn btn-icon btn-sm border-2 border-gray-200 dark:border-gray-700 rounded-md hover:border-emerald-600 dark:hover:border-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-600 hover:text-white dark:text-white text-slate-400"><i
+                                                class="uil uil-instagram align-middle" title="instagram"></i></a></li>
+                                    <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank"
+                                            class="btn btn-icon btn-sm border-2 border-gray-200 dark:border-gray-700 rounded-md hover:border-emerald-600 dark:hover:border-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-600 hover:text-white dark:text-white text-slate-400"><i
+                                                class="uil uil-twitter align-middle" title="twitter"></i></a></li>
+                                    <li class="inline"><a href="mailto:support@shreethemes.in"
+                                            class="btn btn-icon btn-sm border-2 border-gray-200 dark:border-gray-700 rounded-md hover:border-emerald-600 dark:hover:border-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-600 hover:text-white dark:text-white text-slate-400"><i
+                                                class="uil uil-envelope align-middle" title="email"></i></a></li>
+                                </ul><!--end icon-->
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div><!--end col-->
+            </div><!--end grid-->
+        </div><!--end container-->
+
+
     </section><!--end section-->
-    <!-- Hero End -->
-
     <!-- Start -->
-
-    <!-- End -->
 
     <!-- Start Footer -->
     <footer class="relative bg-slate-900 dark:bg-slate-800">
@@ -437,11 +567,7 @@
         </span>
     </div>
 
-    <div class="fixed top-1/2 -right-11 z-50 hidden sm:block">
-        <a href="https://1.envato.market/jobstack" target="_blank"
-            class="py-1 px-3 relative inline-block rounded-t-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold"><i
-                class="mdi mdi-cart-outline me-1"></i> Download</a>
-    </div>
+
     <!-- Switcher -->
 
     <!-- LTR & RTL Mode Code -->
@@ -462,15 +588,12 @@
     <!-- Back to top -->
 
     <!-- JAVASCRIPTS -->
-    <script src="assets/libs/tobii/js/tobii.min.js"></script>
-    <script src="assets/libs/tiny-slider/min/tiny-slider.js"></script>
-    <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/plugins.init.js"></script>
     <script src="assets/js/app.js"></script>
     <!-- JAVASCRIPTS -->
 </body>
 
-<!-- Mirrored from shreethemes.in/jobstack/layouts/index-two.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:33:43 GMT -->
+<!-- Mirrored from shreethemes.in/jobstack/layouts/employer-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 16:34:56 GMT -->
 
 </html>
