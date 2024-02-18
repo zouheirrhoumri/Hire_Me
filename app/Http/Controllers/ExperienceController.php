@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExperienceController extends Controller
 {
@@ -28,7 +29,29 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'position' => 'required|string',
+            'company' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date',
+        ]);
+        $cv = Auth::id();
+
+        // Create a new experience instance
+        $experience = new Experience();
+        $experience->cv_id = $cv;
+        $experience->position = $validatedData['position'];
+        $experience->company = $validatedData['company'];
+        $experience->start_year = $validatedData['start_date'];
+        $experience->end_year = $validatedData['end_date'];
+        
+        // Associate the experience with the authenticated user
+       
+
+        // Save the experience to the database
+        $experience->save();
+
+        return  redirect()->route('candidate');
     }
 
     /**

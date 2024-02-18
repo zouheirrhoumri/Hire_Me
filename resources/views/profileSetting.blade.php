@@ -243,7 +243,7 @@
                                 <div class="grid grid-cols-1">
                                     <div class="mt-5">
                                         <label class="form-label font-medium">About</label>
-                                        <textarea name="a_propos" value="{{old('a_propos')}}" id="comments" class="form-input border border-slate-100 dark:border-slate-800 mt-2 textarea" placeholder="about me"></textarea>
+                                        <textarea name="a_propos" value="{{old('a_propos')}}" id="comments" c placeholder="about me"></textarea>
                                     </div>
                                 </div><!--end row-->
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cv;
 use App\Models\language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LanguageController extends Controller
 {
@@ -28,7 +30,20 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'language' => 'required|string|max:255',
+            'proficiency' => 'required|string|in:Beginner,Intermediate,Advanced,Fluent',
+        ]);
+       
+        $cv = Auth::id();
+
+        // Create a new language instance
+        $language = new Language();
+        $language->cv_id = $cv; // Assuming you have the user_id column in your languages table
+        $language->language = $validatedData['language'];
+        $language->proficiency = $validatedData['proficiency'];
+        $language->save();
+        return  redirect()->route('candidate');
     }
 
     /**

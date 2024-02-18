@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Candidate;
+use App\Models\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,7 @@ class CandidateController extends Controller
     {
         return view('profileSetting');
     }
+    
     public function info(Request $request)
     {
 

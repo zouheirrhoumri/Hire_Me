@@ -69,8 +69,7 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        // $jobs = Job::findOrFail(auth()->user()->entreprise->id);
-        // return view('entrepriseProfile' , ['jobs' => $jobs]);
+       
     }
 
     /**

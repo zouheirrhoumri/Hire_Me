@@ -13,8 +13,16 @@ class EntrepriseController extends Controller
      */
     public function index()
     {
-        $entreprises = Entreprise::findOrFail(auth()->user()->entreprise->id);
-        return view('entrepriseProfile' , ['entreprises' => $entreprises]);
+        $user = auth()->user();
+
+        if ($user->entreprise) {
+            // User has an associated entreprise, proceed with retrieving and displaying the profile
+            $entreprises = Entreprise::findOrFail($user->entreprise->id);
+            return view('entrepriseProfile', ['entreprises' => $entreprises]);
+        } else {
+            // User does not have an associated entreprise, redirect to the form
+            return redirect()->route('entrepriseForm'); // Adjust the route name accordingly
+        }
     }
     public function form()
     {

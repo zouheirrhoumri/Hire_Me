@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\competence;
+use App\Models\cv;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompetenceController extends Controller
 {
@@ -27,8 +29,22 @@ class CompetenceController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        // $cv = Cv::where('user_id', auth()->id())->firstOrFail();
+        $cv = Auth::id();
+        $competence = new Competence();
+        $competence->name = $request->name;
+       
+        $competence->cv_id = $cv;
+        
+        $competence->save();
+
+        // Redirect to a specific route after storing the competence
+        return redirect()->route('candidate');
     }
 
     /**

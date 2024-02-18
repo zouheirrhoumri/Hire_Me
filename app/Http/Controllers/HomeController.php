@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,9 @@ class HomeController extends Controller
         if(Auth::id()){
             $role = Auth()->user()->role;
             if($role == 'user'){
-                return view('dashboard');
+                $jobs = Job::all();
+                return view('dashboard' , ['jobs' => $jobs]);
+                return view('dashboard' , compact('jobs'));
             }
             elseif(Auth::id()){
                 $role = Auth()->user()->role;

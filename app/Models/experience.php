@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class experience extends Model
 {
     use HasFactory;
+    public function cv()
+    {
+        return $this->belongsTo(Cv::class);
+    }
 }
