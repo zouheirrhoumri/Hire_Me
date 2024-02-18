@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,8 @@ class EntrepriseController extends Controller
      */
     public function index()
     {
-        return view('entrepriseProfile');
+        $entreprises = Entreprise::findOrFail(auth()->user()->entreprise->id);
+        return view('entrepriseProfile' , ['entreprises' => $entreprises]);
     }
     public function form()
     {
@@ -52,7 +53,7 @@ class EntrepriseController extends Controller
      */
     public function show(Entreprise $entreprise)
     {
-        //
+        
     }
 
     /**

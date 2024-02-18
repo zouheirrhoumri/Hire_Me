@@ -36,6 +36,8 @@ Route::put('/update-data/{id}', [CandidateController::class, 'update']);
 Route::get('/entrepriseProfile' , [EntrepriseController::class , 'index'])->name('entrepriseProfile');
 Route::get('/entrepriseForm' , [EntrepriseController::class , 'form'])->name('entrepriseForm');
 Route::post('/company',[EntrepriseController::class , 'create']);
+Route::post('/jobPost',[EntrepriseController::class , 'jobPost']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -308,9 +308,8 @@
                     </div>
 
                     <div class="md:mt-0 mt-4">
-                        <a href="#"
-                            class="btn btn-sm bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white rounded-md ms-1">See
-                            Jobs</a>
+                        <a href="/jobForm"
+                            class="btn btn-sm bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white rounded-md ms-1">Post a job</a>
                         <a href="entrepriseForm"
                             class="btn btn-icon rounded-full  bg-emerald-600/5 hover:bg-emerald-600 border-emerald-600/10 hover:border-emerald-600 text-emerald-600 hover:text-white"><i
                                 data-feather="settings" class="size-4"></i></a>
@@ -323,14 +322,8 @@
         <div class="container mt-12">
             <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                 <div class="lg:col-span-8 md:col-span-7">
-                    <h5 class="text-xl font-semibold">Company Story</h5>
-                    <p class="text-slate-400 mt-4">It is a long established fact that a reader will be distracted by
-                        the readable content of a page when looking at its layout. The point of using Lorem Ipsum is
-                        that it has a more-or-less normal distribution of letters, as opposed.</p>
-                    <p class="text-slate-400 mt-2">Contrary to popular belief, Lorem Ipsum is not simply random text.
-                        It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                        Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
-                        the more obscure Latin words, consectetur, from a Lorem Ipsum passage.</p>
+                         <h5 class="text-xl font-semibold">{{$entreprises->slogan}}</h5>
+                    <p class="text-slate-400 mt-2">{{$entreprises->description}}</p>
 
                     <div class="grid grid-cols-12 gap-6 mt-6">
 
@@ -345,13 +338,12 @@
                     </div>
 
                     <h5 class="text-xl font-semibold mt-6">Vacancies:</h5>
-
+ 
                     <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
                         <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
                             <div class="p-6">
                                 <a href="#"
-                                    class="title h5 text-lg font-semibold hover:text-emerald-600">Software
-                                    Engineering</a>
+                                    class="title h5 text-lg font-semibold hover:text-emerald-600"></a>
                                 <p class="text-slate-400 mt-2"><i class="uil uil-clock text-emerald-600"></i> Posted 3
                                     Days ago</p>
 

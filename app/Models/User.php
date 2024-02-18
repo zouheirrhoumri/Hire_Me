@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Candidate;
+use Dotenv\Parser\Entry;
 
 class User extends Authenticatable
 {
@@ -46,7 +47,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function candidate(){
+    public function candidate()
+    {
         return $this->hasMany(Candidate::class);
+    }
+
+
+    public function entreprise()
+    {
+        return $this->hasOne(Entreprise::class);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use App\Models\Job;
 
 class Entreprise extends Model
 {
@@ -15,4 +17,12 @@ class Entreprise extends Model
        'description',
        'user_id'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function jobOffers()
+    {
+        return $this->hasMany(Job::class);
+    }
 }
