@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\cursuse;
 use App\Models\cv;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CvController extends Controller
 {
@@ -27,11 +28,11 @@ class CvController extends Controller
         ]);
 
         // Find the cv for the authenticated user
-        $cv = Cv::where('user_id', auth()->id())->firstOrFail();
-
+        // $cv = Cv::where('user_id', auth()->id())->firstOrFail();
+           $cv = Auth::id();
         // Create a new cursus instance
         $cursus = new cursuse();
-        $cursus->cv_id = $cv->id; // Assign the cv_id from the found cv
+        $cursus->cv_id = $cv; // Assign the cv_id from the found cv
         $cursus->degree = $validatedData['degree'];
         $cursus->institution = $validatedData['institution'];
         $cursus->start_year = $validatedData['start_year'];
@@ -41,7 +42,7 @@ class CvController extends Controller
         $cursus->save();
 
         // Optionally, you can redirect the user after saving
-        return redirect()->back()->with('success', 'Cursus created successfully!');
+        return redirect()->route('candidate');
     }
     public function getUserCursus()
 {

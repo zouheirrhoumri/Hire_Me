@@ -35,7 +35,7 @@
         <!-- Page Content -->
         <main>
             <form action="{{ route('cv.store') }}" method="POST"
-                class="m-4 p-6 border rounded-md bg-gray-100 transition duration-300 ease-in-out border-gray-300 hover:border-blue-500">
+                class="m-4 p-6 border rounded-md bg-gray-100 transition duration-300 ease-in-out hover:border-blue-500">
                 @csrf
                 <h1 class="text-black   font-bold rounded-lg text-center m-4">+ ADD CURSUS </h1>
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -43,28 +43,28 @@
                         <label for="degree"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Degree</label>
                         <input type="text" id="degree" name="degree"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Bachelor's Degree" required>
                     </div>
                     <div>
                         <label for="institution"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Institution</label>
                         <input type="text" id="institution" name="institution"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="University of Example" required>
                     </div>
                     <div>
                         <label for="start_year"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Year</label>
                         <input type="number" id="start_year" name="start_year"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="2020" required>
                     </div>
                     <div>
                         <label for="end_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
                             Year</label>
                         <input type="number" id="end_year" name="end_year"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="2024">
                     </div>
                 </div>
@@ -77,7 +77,7 @@
 
     <div  class="m-4 w-full"></div>
     <form action="{{ route('experience.store') }}" method="POST"
-        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out border-gray-300 hover:border-blue-500">
+        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out hover:border-blue-500">
         @csrf
 
         <h1 class="text-black   font-bold rounded-lg text-center m-4">+ ADD Experience </h1>
@@ -87,28 +87,28 @@
                 <label for="position"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Position</label>
                 <input type="text" id="position" name="position"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Software Engineer" required>
             </div>
             <div>
                 <label for="company"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
                 <input type="text" id="company" name="company"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="ABC Inc." required>
             </div>
             <div>
                 <label for="start_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start
                     Date</label>
                 <input type="date" id="start_date" name="start_date"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required>
             </div>
             <div>
                 <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End
                     Date</label>
                 <input type="date" id="end_date" name="end_date"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
         </div>
         <button type="submit" 
@@ -119,7 +119,7 @@
     <div id="languageList" class=" m-4 w-full"></div>
 
     <form action="{{ route('language.store') }}" method="POST"
-        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out border-gray-300 hover:border-blue-500">
+        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out hover:border-blue-500">
         @csrf
 
         <h1 class="text-black   font-bold rounded-lg text-center m-4">+ ADD Language </h1>
@@ -129,14 +129,14 @@
                 <label for="language"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Language</label>
                 <input type="text" id="language" name="language"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="English" required>
             </div>
             <div>
                 <label for="proficiency"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Proficiency</label>
                 <select  name="proficiency"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required>
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
@@ -151,14 +151,14 @@
     <div id="competenceList" class="m-4 w-full"></div>
 
     <form action="{{ route('competence.store') }}" method="POST"
-        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out border-gray-300 hover:border-blue-500">
+        class="m-4 p-6 border bg-gray-100 rounded-md transition duration-300 ease-in-out hover:border-blue-500">
 
         @csrf
 
         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Competence
             Name</label>
         <input type="text" id="name" name="name"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class=" border text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Competence Name" required>
 
         <button type="submit"

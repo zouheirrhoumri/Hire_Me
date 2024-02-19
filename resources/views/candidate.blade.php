@@ -289,21 +289,23 @@
                     <h5 class="text-xl font-semibold">{{ auth()->user()->name }}</h5>
                     <p class="text-slate-400 mt-4">{{ $candidates->a_propos }}</p>
                     <h4 class="mt-6 text-xl font-semibold">Experience :</h4>
+@foreach ( $experience as $experienc)
+     <div class="flex mt-6">
 
-                    <div class="flex mt-6">
                         <div class="text-slate-400 font-semibold min-w-[80px] text-center">
                             <img src="assets/images/company/shree-logo.png" class="size-16 mx-auto mb-2 block"
-                                alt=""> 2019-22
+                                alt=""> {{date('Y',strtotime($experienc->start_year))}}-{{date('Y',strtotime($experienc->end_year))}}
                         </div>
 
                         <div class="ms-4">
-                            <h5 class="text-lg font-medium mb-0">Full Stack Developer</h5>
-                            <span class="text-slate-400 company-university">Shreethemes - India</span>
-                            <p class="text-slate-400 mt-2 mb-0">It seems that only fragments of the original text
-                                remain in the Lorem Ipsum texts used today. One may speculate that over the course of
+                            <h5 class="text-lg font-medium mb-0">{{$experienc->position}}</h5>
+                            <span class="text-slate-400 company-university">{{$experienc->company}}</span>
+                            <p class="text-slate-400 mt-2 mb-0">One may speculate that over the course of
                                 time certain letters were added or deleted at various positions within the text. </p>
                         </div>
                     </div>
+@endforeach
+                   
 
                     <div class="flex mt-6">
                         <div class="text-slate-400 font-semibold min-w-[80px] text-center">

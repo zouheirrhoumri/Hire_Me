@@ -10,6 +10,6 @@ class language extends Model
     use HasFactory;
     public function cv()
     {
-        return $this->belongsTo(Cv::class);
+        return $this->belongsTo(User::class);
     }
 }
